@@ -19,16 +19,21 @@ import hmac
 import base64
 import time
 import pandas as pd
+import os
 from typing import Optional, Dict, List
+from dotenv import load_dotenv
+
+# 환경 변수 로드
+load_dotenv()
 
 # 네이버 쇼핑 검색 API 설정
-CLIENT_ID = "Yz1xE7I0bC2ywuZ5Xa6Q"
-CLIENT_SECRET = "N0_LV20mNi"
+CLIENT_ID = os.getenv("NAVER_CLIENT_ID", "your_client_id_here")
+CLIENT_SECRET = os.getenv("NAVER_CLIENT_SECRET", "your_client_secret_here")
 
 # 네이버 광고 API 설정
-CUSTOMER_ID = "3900043"
-API_KEY = "010000000040aefa21fbb0a3769e556d20040963da514e6b3e7ea7589fe278cb2e857ce16e"
-SECRET_KEY = "AQAAAABArvoh+7Cjdp5VbSAECWPayKfamwuyOYal6veBVythVA=="
+CUSTOMER_ID = os.getenv("NAVER_CUSTOMER_ID", "your_customer_id_here")
+API_KEY = os.getenv("NAVER_API_KEY", "your_api_key_here")
+SECRET_KEY = os.getenv("NAVER_SECRET_KEY", "your_secret_key_here")
 
 # 페이지 설정
 st.set_page_config(
