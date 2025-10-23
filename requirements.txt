@@ -1,3 +1,5 @@
-PySide6
-requests
+streamlit
+pandas
 python-dotenv
+requests
+pyarrow==15.0.0

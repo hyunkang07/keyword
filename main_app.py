@@ -96,7 +96,7 @@ def show_marketing_tool():
     st.markdown("네이버 마케팅 도구에 오신 것을 환영합니다! 아래 메뉴에서 원하는 기능을 선택하세요.")
     
     # 기능별 카드 메뉴
-    col1, col2, col3 = st.columns(3)
+    col1, col2 = st.columns(2)
     
     with col1:
         st.markdown("""
@@ -112,9 +112,11 @@ def show_marketing_tool():
         <div style="padding: 2rem; background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); 
                     border-radius: 15px; color: white; text-align: center; margin: 1rem 0;">
             <h3>🛍️ 쇼핑 순위</h3>
-            <p>카테고리별 상위 상품<br>순위 조회</p>
+            <p>키워드 검색으로 1-100위<br>상품 순위 조회</p>
         </div>
         """, unsafe_allow_html=True)
+    
+    col3, col4 = st.columns(2)
     
     with col3:
         st.markdown("""
@@ -122,6 +124,15 @@ def show_marketing_tool():
                     border-radius: 15px; color: white; text-align: center; margin: 1rem 0;">
             <h3>📊 키워드 분석</h3>
             <p>연관 키워드 분석 및<br>검색량 데이터</p>
+        </div>
+        """, unsafe_allow_html=True)
+    
+    with col4:
+        st.markdown("""
+        <div style="padding: 2rem; background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); 
+                    border-radius: 15px; color: white; text-align: center; margin: 1rem 0;">
+            <h3>🔗 연관검색어</h3>
+            <p>키워드 입력 시 관련된<br>검색어 목록 추출</p>
         </div>
         """, unsafe_allow_html=True)
     
@@ -136,8 +147,9 @@ def show_marketing_tool():
         st.markdown("""
         ### 🚀 빠른 시작
         1. **순위 확인**: 특정 키워드로 내 상품 순위 확인
-        2. **쇼핑 순위**: 카테고리별 인기 상품 파악
+        2. **쇼핑 순위**: 키워드 검색으로 1-100위 순위 조회
         3. **키워드 분석**: 경쟁사 분석 및 트렌드 파악
+        4. **연관검색어**: 키워드 관련 검색어 목록 추출
         """)
     
     with col2:
@@ -145,7 +157,8 @@ def show_marketing_tool():
         ### 💡 활용 팁
         - **정기적 모니터링**: 주기적으로 순위 변화 확인
         - **경쟁사 분석**: 상위 판매처들의 전략 분석
-        - **키워드 최적화**: 검색량 높은 키워드 활용
+        - **키워드 최적화**: 연관검색어로 SEO 개선
+        - **콘텐츠 마케팅**: 관련 키워드로 콘텐츠 기획
         """)
     
     # 최근 활동 (예시)
@@ -292,6 +305,8 @@ def main():
             - **🎯 순위 확인**: 특정 키워드로 내 상품 순위 확인
             - **🛍️ 쇼핑 순위**: 키워드 검색으로 1-100위 순위 조회
             - **📊 키워드 분석**: 연관 키워드 및 트렌드 분석
+            - **🔗 연관검색어**: 키워드 관련 검색어 목록 추출
+            - **✍️ 글 재작성**: AI 카피라이터가 글을 새롭게 재작성
             """)
 
         show_marketing_tool()
