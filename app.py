@@ -1,13 +1,3 @@
-"""
-본 프로그램 'RankChecker by L&C'는 Link&Co, Inc.에 의해 개발된 소프트웨어입니다.
-해당 소스코드 및 실행 파일의 무단 복제, 배포, 역컴파일, 수정은
-저작권법 및 컴퓨터프로그램 보호법에 따라 엄격히 금지됩니다.
-
-무단 유포 및 상업적 이용 시 민형사상 법적 책임을 물을 수 있습니다.
-
-Copyright ⓒ 2025 Link&Co. All rights reserved.
-Unauthorized reproduction or redistribution is strictly prohibited. 
-"""
 
 import streamlit as st
 import json
@@ -1006,12 +996,32 @@ def shopping_rank_tab():
                 st.error(f"❌ 검색 중 오류 발생: {str(e)}")
 
 
+def check_authentication():
+    """인증 상태 확인"""
+    if 'authenticated' not in st.session_state or not st.session_state.authenticated:
+        st.error("🔐 로그인이 필요합니다.")
+        st.info("로그인 페이지로 이동하려면 페이지를 새로고침하고 login_page.py를 실행하세요.")
+        st.stop()
+
 def main():
     """메인 애플리케이션"""
+    
+    # 인증 확인
+    check_authentication()
     
     # 헤더
     st.markdown('<h1 class="main-title">🔍 네이버 마케팅 도구</h1>', unsafe_allow_html=True)
     st.markdown('<p class="sub-title">by 링크앤코 (Link&Co)</p>', unsafe_allow_html=True)
+    
+    # 사용자 정보 표시
+    col1, col2, col3 = st.columns([3, 1, 1])
+    with col2:
+        st.info(f"👤 {st.session_state.username}님")
+    with col3:
+        if st.button("🚪 로그아웃"):
+            st.session_state.authenticated = False
+            st.session_state.username = None
+            st.rerun()
     
     st.markdown("---")
     
